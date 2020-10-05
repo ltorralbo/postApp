@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 0 15px;
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 42px;
-  width: 500px;
+
   div{
     border-radius: 4px;
     border: 1px solid rgb(207, 224, 237);
@@ -27,14 +25,23 @@ export const Container = styled.div`
 
 
     input {
-      //height: 29px;
       border: none;
       font-weight: 400;
       color: grey;
       
     }
-    *::-webkit-input-placeholder {
-        color: #cfe0ed;
+    
+    @media (max-width: 360px){
+        display: block;
+        flex-direction: column;
+
+        input {
+            width: 100%;
+          }
+
+          button {
+            margin-top: 10px;
+        }
     }
   }  
 `;
