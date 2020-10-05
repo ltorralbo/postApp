@@ -1,16 +1,15 @@
 import React from 'react';
 import GlobalStyle from './styles/global';
-
+import { Provider } from 'react-redux';
+import store from './redux/store/store';
 import Card from './components/Card';
 
 function App() {
   return (
-    <>
+    <Provider store={store}>
       <GlobalStyle />
-      <Card>
-        <h1>wdsdw</h1>
-      </Card>
-    </>
+      <Card></Card>
+    </Provider>
   );
 }
 

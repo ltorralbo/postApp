@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
 import { Container, ValidationMessage } from './styles';
+import { addPost } from '../../redux/actions/posts/actions';
 
 export default function Form() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [errors, setErrors] = React.useState({});
+
+  const dispatch = useDispatch();
 
   const validate = () => {
     let errors = {};
@@ -34,7 +37,9 @@ export default function Form() {
     setErrors(result);
 
     if (!Object.keys(result).length) {
-      //send data to db
+      dispatch(addPost(name, description));
+      setDescription('');
+      setName('');
     }
   };
 
